@@ -14,4 +14,10 @@ type User = {
 	address: Address;
 };
 
+type FiltersName = {
+	[K in keyof Omit<User, 'id' | 'address'>]: string;
+};
+
+type FilterName = keyof FiltersName;
+
 type ColumnsName = keyof Omit<User, 'id' | 'address'>;
