@@ -4,6 +4,12 @@
 	height: 100vh;
 }
 
+main {
+	width: 970px;
+	margin-top: 70px;
+	padding: 15px;
+}
+
 .error {
 	margin-top: 150px;
 	color: #e74ba1e8;

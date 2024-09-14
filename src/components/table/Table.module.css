@@ -1,0 +1,44 @@
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	min-width: 500px;
+	border-radius: 6px;
+	box-shadow: 11px 26px 32px -9px rgba(0, 0, 0, 0.411);
+	overflow: hidden;
+	color: #0b2545;
+	cursor: text;
+}
+
+.table tr {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.head tr {
+	font-size: 1.3rem;
+	background-color: #0b2545;
+	color: #eef4ed;
+	text-transform: capitalize;
+	cursor: default;
+}
+
+.head th,
+.table td {
+	padding: 10px 16px;
+}
+
+.head th {
+	text-align: left;
+}
+
+.body tr:nth-child(even) {
+	background-color: #eef4ed;
+}
+
+.body tr:nth-child(odd) {
+	background-color: #8da9c4;
+}
+
+.body tr:hover {
+	filter: brightness(1.1);
+}
