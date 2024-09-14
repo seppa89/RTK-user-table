@@ -1,10 +1,11 @@
+import { selectFilteredUsers } from '../../store/selectors';
 import { useAppSelector } from '../../store/store';
 import classes from './Table.module.css';
 
 const columns: ColumnsName[] = ['name', 'username', 'email', 'phone'];
 
 export default function Table() {
-	const users = useAppSelector(store => store.users.users);
+	const filteredUsers = useAppSelector(selectFilteredUsers);
 
 	return (
 		<table className={classes.table}>
@@ -16,7 +17,7 @@ export default function Table() {
 				</tr>
 			</thead>
 			<tbody className={classes.body}>
-				{users?.map(user => (
+				{filteredUsers?.map(user => (
 					<tr key={user.id}>
 						<td>{user.name}</td>
 						<td>{user.username}</td>

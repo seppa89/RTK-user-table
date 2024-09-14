@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from './store/store';
 import Error from './components/ui/Error';
 import Spinner from './components/ui/Spinner';
 import Table from './components/table/Table';
+import Filters from './components/filters/Filters';
 
 export default function App() {
 	const dispatch = useAppDispatch();
@@ -23,6 +24,7 @@ export default function App() {
 	return (
 		<main>
 			<h1>Users List</h1>
+			<Filters />
 			<Table />
 		</main>
 	);
