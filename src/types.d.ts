@@ -13,3 +13,5 @@ type User = {
 	phone: string;
 	address: Address;
 };
+
+type ColumnsName = keyof Omit<User, 'id' | 'address'>;
