@@ -21,3 +21,8 @@ type FiltersName = {
 type FilterName = keyof FiltersName;
 
 type ColumnsName = keyof Omit<User, 'id' | 'address'>;
+
+type SortOptions = {
+	name: ColumnsName | '';
+	value: 'asc' | 'desc';
+};
