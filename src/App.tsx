@@ -6,6 +6,7 @@ import Error from './components/ui/Error';
 import Spinner from './components/ui/Spinner';
 import Table from './components/table/Table';
 import Filters from './components/filters/Filters';
+import Modal from './components/modal/Modal';
 
 export default function App() {
 	const dispatch = useAppDispatch();
@@ -26,6 +27,7 @@ export default function App() {
 			<h1 className='heading'>Users List</h1>
 			<Filters />
 			<Table />
+			<Modal />
 		</main>
 	);
 }

@@ -3,6 +3,7 @@ import { selectFilteredUsers } from '../../store/selectors';
 import { useAppSelector } from '../../store/store';
 import classes from './Table.module.css';
 import SortDirections from './SortDirections';
+import { useModal } from '../../hooks/useModal';
 
 const columns: ColumnsName[] = ['name', 'username', 'email', 'phone'];
 
@@ -12,6 +13,8 @@ export default function Table() {
 		name: '',
 		value: 'asc',
 	});
+
+	const { onOpen } = useModal();
 
 	function handleSort(column: ColumnsName) {
 		setSortOptions(prevSort => {
@@ -63,7 +66,7 @@ export default function Table() {
 							<td>{user.name}</td>
 							<td>{user.username}</td>
 							<td>{user.email}</td>
-							<td>{user.phone}</td>
+							<td onClick={onOpen}>{user.phone}</td>
 						</tr>
 					))
 				)}
