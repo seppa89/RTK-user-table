@@ -13,6 +13,8 @@ interface ModalInitialState {
 	ref: RefObject<HTMLDialogElement> | null;
 	userId: number | null;
 	setUserId: (id: number | null) => void;
+	position: { x: number; y: number };
+	setPosition: ({ x, y }: { x: number; y: number }) => void;
 }
 
 export const ModalContext = createContext<ModalInitialState>({
@@ -21,11 +23,17 @@ export const ModalContext = createContext<ModalInitialState>({
 	ref: null,
 	setUserId: () => {},
 	userId: null,
+	position: { x: 0, y: 0 },
+	setPosition: () => {},
 });
 
 export default function ModalProvider({ children }: PropsWithChildren) {
 	const modalRef = useRef<HTMLDialogElement>(null);
 	const [userId, setUserId] = useState<number | null>(null);
+	const [position, setPosition] = useState<{ x: number; y: number }>({
+		x: 0,
+		y: 0,
+	});
 
 	useEffect(() => {
 		function handleCloseModalByEsc(e: KeyboardEvent) {
@@ -71,6 +79,8 @@ export default function ModalProvider({ children }: PropsWithChildren) {
 				ref: modalRef,
 				setUserId,
 				userId,
+				position,
+				setPosition,
 			}}
 		>
 			{children}

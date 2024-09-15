@@ -43,6 +43,11 @@ export default function Table() {
 		if (modal.userId === id) {
 			modal.onClose();
 		} else {
+			const rect = e.currentTarget.getBoundingClientRect();
+			const x = -550;
+			const y = rect.y - rect.height;
+
+			modal.setPosition({ x, y });
 			modal.setUserId(id);
 			modal.onOpen();
 		}
