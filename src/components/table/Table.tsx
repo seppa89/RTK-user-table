@@ -13,8 +13,7 @@ export default function Table() {
 		name: '',
 		value: 'asc',
 	});
-
-	const { onOpen } = useModal();
+	const modal = useModal();
 
 	function handleSort(column: ColumnsName) {
 		setSortOptions(prevSort => {
@@ -38,6 +37,15 @@ export default function Table() {
 				: -direction;
 		} else return 0;
 	});
+
+	function handleToggleModal(id: number) {
+		if (modal.userId === id) {
+			modal.onClose();
+		} else {
+			modal.setUserId(id);
+			modal.onOpen();
+		}
+	}
 
 	return (
 		<table className={classes.table}>
@@ -66,7 +74,7 @@ export default function Table() {
 							<td>{user.name}</td>
 							<td>{user.username}</td>
 							<td>{user.email}</td>
-							<td onClick={onOpen}>{user.phone}</td>
+							<td onClick={() => handleToggleModal(user.id)}>{user.phone}</td>
 						</tr>
 					))
 				)}

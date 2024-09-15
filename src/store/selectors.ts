@@ -18,3 +18,8 @@ export const selectFilteredUsers = createSelector(
 		} else return [];
 	}
 );
+
+export const selectUserById = (id: number) =>
+	createSelector([getUsers], users => {
+		return users?.find(user => user.id === id);
+	});
