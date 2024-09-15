@@ -69,7 +69,7 @@
 .empty {
 	grid-column: 1/-1;
 	font-size: 1.2rem;
-	justify-items: center;
+	margin: 0 auto;
 }
 
 .more {
