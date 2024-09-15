@@ -2,6 +2,7 @@ import {
 	createContext,
 	PropsWithChildren,
 	RefObject,
+	useEffect,
 	useRef,
 	useState,
 } from 'react';
@@ -25,6 +26,29 @@ export const ModalContext = createContext<ModalInitialState>({
 export default function ModalProvider({ children }: PropsWithChildren) {
 	const modalRef = useRef<HTMLDialogElement>(null);
 	const [userId, setUserId] = useState<number | null>(null);
+
+	useEffect(() => {
+		function handleCloseModalByEsc(e: KeyboardEvent) {
+			if (e.key === 'Escape' && modalRef.current?.open) {
+				handleClose();
+			}
+		}
+		function handleCloseModalByClick(e: MouseEvent) {
+			if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+				handleClose();
+			}
+		}
+
+		if (modalRef?.current && modalRef?.current.open) {
+			document.addEventListener('keydown', handleCloseModalByEsc);
+			document.addEventListener('click', handleCloseModalByClick);
+		}
+
+		return () => {
+			document.removeEventListener('keydown', handleCloseModalByEsc);
+			document.removeEventListener('click', handleCloseModalByClick);
+		};
+	}, [modalRef.current?.open]);
 
 	function handleOpen() {
 		if (modalRef.current) {

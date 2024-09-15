@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import { selectFilteredUsers } from '../../store/selectors';
 import { useAppSelector } from '../../store/store';
 import classes from './Table.module.css';
@@ -38,7 +38,8 @@ export default function Table() {
 		} else return 0;
 	});
 
-	function handleToggleModal(id: number) {
+	function handleToggleModal(e: MouseEvent, id: number) {
+		e.stopPropagation();
 		if (modal.userId === id) {
 			modal.onClose();
 		} else {
@@ -74,7 +75,7 @@ export default function Table() {
 							<td>{user.name}</td>
 							<td>{user.username}</td>
 							<td>{user.email}</td>
-							<td onClick={() => handleToggleModal(user.id)}>{user.phone}</td>
+							<td onClick={e => handleToggleModal(e, user.id)}>{user.phone}</td>
 						</tr>
 					))
 				)}
