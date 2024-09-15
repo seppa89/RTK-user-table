@@ -49,8 +49,9 @@
 	padding: 10px 16px;
 }
 
-.head th {
-	text-align: left;
+.table tr td:last-child {
+	display: flex;
+	justify-content: space-between;
 }
 
 .body tr:nth-child(even) {
@@ -69,4 +70,28 @@
 	grid-column: 1/-1;
 	font-size: 1.2rem;
 	justify-items: center;
+}
+
+.more {
+	aspect-ratio: 1;
+	height: 100%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 2px;
+	cursor: pointer;
+}
+
+.more span {
+	display: block;
+	width: 4px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background-color: #59626b;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.more:hover span {
+	filter: brightness(0.6);
 }

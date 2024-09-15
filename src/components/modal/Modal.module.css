@@ -1,0 +1,91 @@
+.modal {
+	position: absolute;
+	padding: 0;
+	min-width: 250px;
+	border: 1px solid white;
+	border-radius: 6px;
+	outline: none;
+	overflow: hidden;
+	box-shadow: 11px 26px 32px -9px rgba(0, 0, 0, 0.705);
+	transform-origin: right center;
+	transition: opacity 0.2s linear, transform 0.2s linear,
+		visibility 0s linear 0.2s, translate 0.2s linear;
+}
+
+.content {
+	background-color: #f7f7f7;
+	padding: 16px 24px;
+	position: relative;
+}
+
+.address h2 {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	margin-top: 0;
+	font-size: 0.8rem;
+	color: #72889c;
+}
+
+.address p {
+	line-height: 0.4;
+	color: #0b2545;
+	font-weight: 600;
+}
+
+.content button {
+	position: absolute;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	font-size: larger;
+	color: #696969;
+	top: 0px;
+	right: 5px;
+	cursor: pointer;
+	transition: color 0.2s ease;
+}
+
+.content button:hover {
+	color: #252323;
+}
+
+dialog {
+	animation: fade-out 0.2s ease-out;
+}
+
+dialog[open] {
+	animation: fade-in 0.2s ease-out;
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+		transform: scale(0);
+		display: none;
+	}
+
+	100% {
+		opacity: 1;
+		visibility: visible;
+		transform: scale(1);
+		display: block;
+	}
+}
+
+@keyframes fade-out {
+	0% {
+		opacity: 1;
+		visibility: visible;
+		transform: scale(1);
+		display: block;
+	}
+
+	100% {
+		opacity: 0;
+		visibility: hidden;
+		transform: scale(0);
+		display: none;
+	}
+}

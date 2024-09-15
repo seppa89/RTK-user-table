@@ -1,11 +1,9 @@
-import { useSelector } from 'react-redux';
 import { useModal } from '../../hooks/useModal';
 import Address from './Address';
-import { selectUserById } from '../../store/selectors';
+import classes from './Modal.module.css';
 
 export default function Modal() {
-	const { onClose, ref, userId, position } = useModal();
-	const user = useSelector(selectUserById(userId as number));
+	const { ref, onClose, position } = useModal();
 
 	return (
 		<dialog
@@ -16,11 +14,14 @@ export default function Modal() {
 				right: `${position.x}px`,
 				top: `${position.y}px`,
 			}}
+			className={classes.modal}
 		>
-			{user && <Address address={user.address} />}
-			<button type='button' onClick={onClose}>
-				x
-			</button>
+			<div className={classes.content}>
+				<Address />
+				<button type='button' onClick={onClose}>
+					x
+				</button>
+			</div>
 		</dialog>
 	);
 }

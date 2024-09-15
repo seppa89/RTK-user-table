@@ -80,7 +80,18 @@ export default function Table() {
 							<td>{user.name}</td>
 							<td>{user.username}</td>
 							<td>{user.email}</td>
-							<td onClick={e => handleToggleModal(e, user.id)}>{user.phone}</td>
+							<td>
+								{user.phone}
+								<div
+									title='address'
+									className={classes.more}
+									onClick={e => handleToggleModal(e, user.id)}
+								>
+									<span />
+									<span />
+									<span />
+								</div>
+							</td>
 						</tr>
 					))
 				)}
