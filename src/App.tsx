@@ -23,7 +23,7 @@ export default function App() {
 
 	return (
 		<main>
-			<h1>Users List</h1>
+			<h1 className='heading'>Users List</h1>
 			<Filters />
 			<Table />
 		</main>

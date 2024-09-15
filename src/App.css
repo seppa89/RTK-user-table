@@ -10,6 +10,11 @@ main {
 	padding: 15px;
 }
 
+.heading {
+	font-size: 2.5rem;
+	margin-bottom: 10px;
+}
+
 .error {
 	margin-top: 150px;
 	color: #e74ba1e8;

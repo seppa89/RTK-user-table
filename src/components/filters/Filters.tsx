@@ -2,6 +2,7 @@ import { ChangeEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import Input from '../ui/Input';
 import { setFilter } from '../../features/filters/filtersSlice';
+import classes from './Filters.module.css';
 
 export default function Filters() {
 	const dispatch = useAppDispatch();
@@ -16,7 +17,7 @@ export default function Filters() {
 	}
 
 	return (
-		<div>
+		<div className={classes.filters}>
 			<div>
 				<Input
 					id='name'

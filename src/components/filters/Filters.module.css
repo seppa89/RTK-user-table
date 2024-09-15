@@ -1,0 +1,50 @@
+.filters {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	margin-bottom: 1rem;
+	border: 1px solid #ffffff;
+	border-radius: 6px;
+	padding: 10px;
+	background-color: #ffeded;
+	overflow: hidden;
+}
+
+.filters div {
+	position: relative;
+}
+
+.filters div:not(:last-child) {
+	border-right: 1px solid #cabfbf;
+}
+
+.filters input {
+	width: 100%;
+	color: #222;
+	border: none;
+	font-family: inherit;
+	font-size: 1.1rem;
+	background-color: inherit;
+	padding: 14px 8px 4px;
+}
+
+.filters input:focus {
+	outline: 2px solid #04209c;
+}
+
+.filters label {
+	position: absolute;
+	top: 50%;
+	left: 5px;
+	color: #868686;
+	transform: translateY(-50%);
+	background-color: #ffeded;
+	transition: 0.2s cubic-bezier(0, 0, 0.2, 1);
+	padding: 0 6px;
+	cursor: text;
+	transform-origin: left center;
+}
+
+.filters input:focus-visible ~ label,
+.filters input:not(:placeholder-shown) ~ label {
+	transform: translateY(-30px) scale(0.8);
+}
