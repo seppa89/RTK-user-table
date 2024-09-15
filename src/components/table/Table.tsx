@@ -17,14 +17,20 @@ export default function Table() {
 				</tr>
 			</thead>
 			<tbody className={classes.body}>
-				{filteredUsers?.map(user => (
-					<tr key={user.id}>
-						<td>{user.name}</td>
-						<td>{user.username}</td>
-						<td>{user.email}</td>
-						<td>{user.phone}</td>
+				{filteredUsers.length === 0 ? (
+					<tr className={classes.empty}>
+						<td className={classes.empty}>No users found</td>
 					</tr>
-				))}
+				) : (
+					filteredUsers?.map(user => (
+						<tr key={user.id}>
+							<td>{user.name}</td>
+							<td>{user.username}</td>
+							<td>{user.email}</td>
+							<td>{user.phone}</td>
+						</tr>
+					))
+				)}
 			</tbody>
 		</table>
 	);

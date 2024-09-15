@@ -42,3 +42,9 @@
 .body tr:hover {
 	filter: brightness(1.1);
 }
+
+.empty {
+	grid-column: 1/-1;
+	font-size: 1.2rem;
+	justify-items: center;
+}
